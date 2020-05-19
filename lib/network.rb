@@ -52,7 +52,6 @@ class Network
   end
 
   def prolific_actors
-    # require "pry"; binding.pry
     prolific = []
     shows_by_actor.find_all do |actor, shows|
       if shows.count > 1
