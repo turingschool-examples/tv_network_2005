@@ -31,4 +31,11 @@ class Network
     show_actors
   end
 
+  def shows_by_actor
+    @shows.each do |show|
+      require "pry"
+      binding.pry
+    end
+  end
+
 end
