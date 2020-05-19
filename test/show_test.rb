@@ -30,4 +30,8 @@ class ShowTest < Minitest::Test
   def test_total_salary
     assert_equal 2600000, @knight_rider.total_salary
   end
+
+  def test_it_can_determine_highest_paid_actor
+    assert_equal "David Hasselhoff", @knight_rider.highest_paid_actor
+  end
 end
