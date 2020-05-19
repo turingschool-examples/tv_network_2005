@@ -28,7 +28,8 @@ class CharacterTest < Minitest::Test
   def test_it_can_find_highest_paid_actor
     assert_equal "David Hasselhoff", @knight_rider.highest_paid_actor
   end
-end
 
-# pry(main)> knight_rider.actors
-# # => ["David Hasselhoff", "William Daniels"]
+  def test_it_can_return_actors
+    assert_equal ["David Hasselhoff", "William Daniels"], @knight_rider.actors
+  end
+end
