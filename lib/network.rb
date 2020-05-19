@@ -11,4 +11,13 @@ class Network
     @shows << show
   end
 
+  def main_characters
+    @shows.map do |show|
+      show.characters.find_all do |character|
+        character.name.upcase == character.name &&
+        character.salary > 500_000
+      end
+    end.flatten
+  end
+
 end
