@@ -24,4 +24,11 @@ class Network
   def actors_by_show
     shows.to_h { |show| [show, show.actors] }
   end
+
+  def shows_by_actor
+    actors = shows.map do |show|
+      show.actors
+    end.flatten
+    actors.to_h {|actor| [actor, shows.select {|show| show if show.actors.include?(actor)}]}
+  end
 end
