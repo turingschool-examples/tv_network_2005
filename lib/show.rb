@@ -19,4 +19,9 @@ class Show
     @characters.max_by { |c| c.salary }.actor
   end
 
+  def actors
+    @characters.collect do |character|
+      character.actor
+    end
+  end
 end
