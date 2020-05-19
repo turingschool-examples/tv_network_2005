@@ -8,4 +8,12 @@ attr_reader :name, :creator, :characters
     @creator = creator
     @characters = characters
   end
+
+  def total_salary
+    salary_total = 0
+    @characters.each do |character|
+      salary_total += character.salary
+    end
+    salary_total
+  end
 end
