@@ -24,6 +24,6 @@ class ShowTest < Minitest::Test
   end
 
   def test_it_hace_characters_array
-    assert_equal [@michael_knight, @kitt]
+    assert_equal [@michael_knight, @kitt], @knight_rider.characters
   end
 end
