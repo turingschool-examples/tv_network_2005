@@ -20,4 +20,8 @@ class Network
     end
     main_characters
   end
+
+  def actors_by_show
+    shows.to_h { |show| [show, show.actors] }
+  end
 end
