@@ -1,7 +1,9 @@
 class Network
 
-  def initialize
+  attr_reader :name
 
+  def initialize(name)
+    @shows = []
   end
 
 end
