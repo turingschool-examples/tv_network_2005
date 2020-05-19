@@ -2,6 +2,8 @@ require './lib/character'
 require './lib/show'
 
 class Network
+  attr_reader :name, :shows
+  
   def initialize(name)
     @name = name
     @shows = []
