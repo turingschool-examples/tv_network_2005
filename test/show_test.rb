@@ -20,6 +20,10 @@ class CharacterTest < Minitest::Test
     assert_equal "Glen Larson", @knight_rider.creator
     assert_equal [@michael_knight, @kitt], @knight_rider.characters
   end
+
+  def test_it_can_calculate_total_salary
+    assert_equal 2_600_000, @knight_rider.total_salary
+  end
 end
 
 
