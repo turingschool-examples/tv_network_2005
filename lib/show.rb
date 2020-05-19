@@ -9,7 +9,6 @@ class Show
     @name = name
     @creator = creator
     @characters = characters
-
   end
 
   def total_salary
