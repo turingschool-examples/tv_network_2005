@@ -53,7 +53,7 @@ class Network
 
   def prolific_actors
     prolific = []
-    shows_by_actor.find_all do |actor, shows|
+    shows_by_actor.each do |actor, shows|
       if shows.count > 1
         prolific << actor
       end
