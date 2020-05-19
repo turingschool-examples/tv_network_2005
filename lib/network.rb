@@ -31,14 +31,14 @@ class Network
   end
 
   def shows_by_actor
-    grouped = Hash.new{ |hash, key| hash[key] = []}
-    #key is actor, value is array of shows they're in
-    @shows.each do |show|
-      show.actors.each do |actor|
-        grouped[actor] << show
+    hash = Hash.new { |hash, key| hash[key] = [] }
+
+    actors_by_show.each do |show, actors|
+      actors.each do |actor|
+        hash[actor] << show
       end
     end
-  end
+
 
   def prolific_actors
     #need to use shows by actor to link actors to the shows they have been in and then do a select if the actor has been in > 1 shows
