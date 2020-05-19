@@ -31,4 +31,15 @@ class Network
     hash
   end
 
+  # look at actors by show and get that info out
+  def shows_by_actor
+    hash = {}
+    @shows.each do |show|
+      hash = show.characters.group_by do |character|
+        character.actor
+      end
+    end
+    hash
+  end
+
 end
