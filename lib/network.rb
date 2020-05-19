@@ -21,4 +21,13 @@ class Network
     end
     main
   end
+
+  def actors_by_show
+    # show_actors = @shows.map do |show|
+    #   show.actors
+    # end
+    @shows.group_by do |show|
+      show.actors
+    end.invert
+  end
 end
