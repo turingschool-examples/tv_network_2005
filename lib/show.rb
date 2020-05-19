@@ -23,4 +23,10 @@ class Show
     end
     actor.actor
   end
+
+  def actors
+    @characters.sort do |character|
+      character.actor 
+    end
+  end
 end
