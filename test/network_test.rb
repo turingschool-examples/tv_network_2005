@@ -19,17 +19,14 @@ class NetworkTest < Minitest::Test
   end
 
   def test_it_exists
-    skip
     assert_instance_of Network, @nbc
   end
 
   def test_it_has_name
-    skip
     assert_equal "NBC", @nbc.name
   end
 
   def test_it_has_shows
-    skip
     assert_equal [], @nbc.shows
 
     @nbc.add_show(@knight_rider)
@@ -39,12 +36,14 @@ class NetworkTest < Minitest::Test
   end
 
   def test_it_has_main_characters
-    skip
-    assert_equal @kitt, nbc.main_characters
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+    
+    assert_equal @kitt, @nbc.main_characters
   end
 
   def test_is_has_actors_by_show
     skip
-    assert_equal {@knight_rider => ["David Hasselhoff", "William Daniels"], @parks_and_rec => ["Amy Poehler", "Nick Offerman"]}, @nbc.actors_by_show
+    assert_equal ({@knight_rider => ["David Hasselhoff", "William Daniels"], @parks_and_rec => ["Amy Poehler", "Nick Offerman"]}), @nbc.actors_by_show
   end
 end
