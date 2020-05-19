@@ -29,7 +29,7 @@ class NetworkTest < Minitest::Test
                                     actor: "Nick Offerman",
                                     salary: 1_400_000
                                     })
-    @parks_and_rec = Show.new("Parks and Recreation", "Michael Shur & Greg Daniels", [leslie_knope, ron_swanson])
+    @parks_and_rec = Show.new("Parks and Recreation", "Michael Shur & Greg Daniels", [@leslie_knope, @ron_swanson])
   end
 
   def test_it_exist
