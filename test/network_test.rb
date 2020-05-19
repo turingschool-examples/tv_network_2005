@@ -35,4 +35,11 @@ class NetworkTest < Minitest::Test
   def test_it_exist
     assert_instance_of Network, @nbc
   end
+
+  def test_add_show
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+
+    assert_equal [@knight_rider, @parks_and_rec], @nbc.shows
+  end
 end
