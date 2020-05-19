@@ -23,4 +23,17 @@ class Network
       show.actors
     end
   end
+
+  def shows_by_actor
+    list = Hash.new
+    @shows.map do |show|
+      list[show.actors[]] = show.name
+    end
+  end
+
+  def prolific_actors
+    @shows.select do |show|
+      #
+    end
+  end
 end

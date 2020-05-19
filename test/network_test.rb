@@ -24,6 +24,10 @@ class NetworkTest < Minitest::Test
     @parks_and_rec = Show.new("Parks and Recreation",
                   "Michael Shur & Greg Daniels",
                   [@leslie_knope, @ron_swanson])
+    @mitch = Character.new({name: "Mitch Buchannon",
+                  actor: "David Hasselhoff", salary: 1_200_000})
+    @baywatch = Show.new("Baywatch", "Gregory Bonann", [@mitch])
+
   end
 
   def test_the_network_exists
@@ -53,4 +57,19 @@ class NetworkTest < Minitest::Test
                 @nbc.actors_by_show
   end
 
+  def test_it_returns_shows_by_actor
+    skip
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@baywatch)
+    @nbc.add_show(@parks_and_rec)
+    assert_equal @nbc.shows_by_actor
+  end
+
+  def test_it_returns_prolific_actors
+    skip
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@baywatch)
+    @nbc.add_show(@parks_and_rec)
+    assert_equal ["David Hasselhoff"], @nbc.prolific_actors
+  end
 end
