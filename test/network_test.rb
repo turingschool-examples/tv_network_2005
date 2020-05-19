@@ -8,7 +8,7 @@ class NetworkTest < Minitest::Test
 
   def setup
     @nbc = Network.new("NBC")
-    
+
     @michael_knight = Character.new({name: "Michael Knight", actor: "David Hasselhoff", salary: 1_600_000})
 
     @kitt = Character.new({name: "KITT", actor: "William Daniels", salary: 1_000_000})
@@ -32,6 +32,20 @@ class NetworkTest < Minitest::Test
 
   def test_it_has_shows
     assert_equal [], @nbc.shows
+  end
+
+  def test_it_can_add_shows
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+
+    assert_equal [@knight_rider, @parks_and_rec], @nbc.shows
+  end
+
+  def test_it_has_main_characters
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+    
+    assert_equal [@kitt], @nbc.main_characters
   end
 
 end
