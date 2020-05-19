@@ -15,6 +15,4 @@ class Show
   end
 
 
-
-
 end
