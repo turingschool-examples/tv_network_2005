@@ -31,4 +31,12 @@ class Network
     end.flatten
     actors.to_h {|actor| [actor, shows.select {|show| show if show.actors.include?(actor)}]}
   end
+
+  def prolific_actors
+    actors = []
+    shows_by_actor.each do |actor, show|
+      actors << actor if show.count > 1
+    end
+    actors
+  end
 end
