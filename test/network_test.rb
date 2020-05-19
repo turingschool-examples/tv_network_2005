@@ -49,5 +49,4 @@ class NetworkTest < MiniTest::Test
     assert_equal expected, @nbc.actors_by_show
   end
 
-
 end

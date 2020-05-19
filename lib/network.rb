@@ -20,4 +20,15 @@ class Network
     end
   end
 
+  def actors_by_show
+    hash = {}
+    @shows.each do |show|
+      actors = show.characters.map do |character|
+        character.actor
+      end
+      hash[show] = actors
+    end
+    hash
+  end
+
 end
