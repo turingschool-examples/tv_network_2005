@@ -23,4 +23,10 @@ attr_reader :name, :creator, :characters
     end
     highest_paid.actor
   end
+
+  def actors
+    @characters.map do |character|
+      character.actor
+    end
+  end
 end
