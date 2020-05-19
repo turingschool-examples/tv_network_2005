@@ -9,14 +9,20 @@ class Network
     @shows << show
   end
 
-  def main_characters
-    all_characters = @shows.collect do |show|
+  def all_characters
+    @shows.collect do |show|
       show.characters
     end.flatten
+  end
 
+  def main_characters
     all_characters.find_all do |character|
       character.salary > 500_000 && character.name == character.name.upcase
-    end 
+    end
+  end
+
+  def actors_by_show
+
   end
 
 end
