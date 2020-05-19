@@ -11,7 +11,8 @@ class CharacterTest < Minitest::Test
   end
 
   def test_player_has_name
-
+    kitt = Character.new({name: "KITT", actor: "William Daniels", salary: 1_000_000})
+    assert_equal "KITT", kitt.name
   end
 
 
