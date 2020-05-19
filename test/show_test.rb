@@ -38,4 +38,5 @@ class ShowTest < Minitest::Test
   def test_it_can_give_array_of_all_actors
     assert_equal ["David Hasselhoff", "William Daniels"], @knight_rider.actors
   end
+
 end

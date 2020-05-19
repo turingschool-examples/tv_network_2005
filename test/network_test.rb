@@ -44,7 +44,6 @@ class NetworkTest < Minitest::Test
   end
 
   def test_it_can_group_characters_by_show
-    # skip
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@parks_and_rec)
     expected = {
@@ -55,6 +54,7 @@ class NetworkTest < Minitest::Test
   end
 
   def test_it_can_group_show_by_actors
+    # skip
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@baywatch)
     @nbc.add_show(@parks_and_rec)
