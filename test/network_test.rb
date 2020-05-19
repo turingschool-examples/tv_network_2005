@@ -27,4 +27,10 @@ class NetworkTest < Minitest::Test
   def test_it_has_empty_shows_array
     assert_equal [], @nbc.shows
   end
+
+  def test_it_can_add_shows
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+    assert_equal [@knight_rider, @parks_and_rec]
+  end
 end
