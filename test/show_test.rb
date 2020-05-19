@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/character'
 require './lib/show'
 
-class CharacterTest < Minitest::Test
+class ShowTest < Minitest::Test
 
   def test_instance_of_show
     kitt = Character.new({name: "KITT", actor: "William Daniels", salary: 1_000_000})
@@ -40,7 +40,7 @@ class CharacterTest < Minitest::Test
     assert_equal 2_600_000, knight_rider.total_salary
   end
 
-  def highest_paid_actor
+  def test_highest_paid_actor
     kitt = Character.new({name: "KITT", actor: "William Daniels", salary: 1_000_000})
     michael_knight = Character.new({name: "Michael Knight", actor: "David Hasselhoff", salary: 1_600_000})
     knight_rider = Show.new("Knight Rider", "Glen Larson", [michael_knight, kitt])
