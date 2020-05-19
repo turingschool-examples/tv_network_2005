@@ -32,16 +32,17 @@ class ShowTest < Minitest::Test
 
   def test_it_has_a_total_salary
     skip
-    assert_equal     , @show.total_salary
+    assert_equal 2600000, @show.total_salary
+  end
 
+  def test_it_has_highest_paid_actor
+    skip
+    assert_equal Character_2.new, @show.highest_paid_actor
+  end
 
-
-
-
-
-
-
-
-
+  def test_it_has_actors
+    skip
+    assert_equal Character_1.new && Character_2.new, @show.actors
+  end
 
 end
