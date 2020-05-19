@@ -25,8 +25,6 @@ class ShowTest < Minitest::Test
 
     knight_rider = Show.new("Knight Rider", "Glen Larson", [michael_knight, kitt])
 
-    require "pry"; binding.pry
-
     assert_equal 2600000, knight_rider.total_salary
   end
 

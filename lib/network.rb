@@ -10,7 +10,4 @@ class Network
     @shows << new_show
   end
 
-  def actors_by_show
-
-  end
 end
