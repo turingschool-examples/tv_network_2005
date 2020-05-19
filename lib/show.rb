@@ -20,9 +20,8 @@ class Show
   end
 
   def actors
-    require "pry";binding.pry
     @characters.map do |character|
-      character.salary 
+      character.actor 
     end
   end
 
