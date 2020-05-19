@@ -12,4 +12,12 @@ class NetworkTest < Minitest::Test
   def test_it_exists
     assert_instance_of Network, @nbc
   end
+
+  def test_it_has_a_name
+    assert_equal "NBC", @nbc.name
+  end
+
+  def test_it_is_initialized_with_no_shows
+    assert_equal [], @nbc.shows
+  end
 end
