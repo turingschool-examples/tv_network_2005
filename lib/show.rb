@@ -11,7 +11,14 @@ class Show
 
   def total_salary
     @characters.sum do |character|
-      character.salary 
+      character.salary
     end
+  end
+
+  def highest_paid_actor
+    character = @characters.max_by do |character|
+      character.salary
+    end
+    character.actor 
   end
 end
