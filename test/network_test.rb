@@ -25,6 +25,6 @@ class NetworkTest < Minitest::Test
   end
 
   def test_it_has_empty_shows_array
-    assert_equal [], @nmb.shows
+    assert_equal [], @nbc.shows
   end
 end
