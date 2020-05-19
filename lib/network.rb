@@ -28,4 +28,13 @@ class Network
     end
     sorted
   end
+
+  def shows_by_actor
+    #not working 
+    sorted = {}
+    @shows.each do |show|
+      sorted[show.characters.map {|character| character.actor}] = show
+    end
+    sorted
+  end
 end
