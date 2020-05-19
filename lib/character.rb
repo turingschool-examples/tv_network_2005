@@ -8,7 +8,4 @@ class Character
     @actor = character[:actor]
     @salary = character[:salary].to_s.gsub(/\_/,'').to_i
   end
-
-
-
 end
