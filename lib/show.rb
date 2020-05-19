@@ -1,8 +1,15 @@
+# I could def initialize and attr_reader all
+# the methods with 1 line enumerables,
+# but I'm not sure that is "best practice"...
+# for instance:
+# @total_salary = characters.sum { |character| character.info[:salary] }
+
+
 class Show
   attr_reader :name,
               :creator,
               :characters,
-              :actors
+              :actors,
 
   def initialize(name, creator, characters)
     @name = name
@@ -25,6 +32,6 @@ class Show
   def actors
     characters.map do |character|
       character.actor
-    end  
+    end
   end
 end
