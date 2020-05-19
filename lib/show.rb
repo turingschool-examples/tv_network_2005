@@ -16,4 +16,8 @@ class Show
      end
      top_billing.actor
   end
+
+  def actors
+    characters.map { |character| character.actor }
+  end
 end
