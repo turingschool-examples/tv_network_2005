@@ -1,16 +1,13 @@
 class Character
 
-  attr_reader :name,
+  attr_reader :character,
               :actor,
               :salary
 
-  def initialize(character) 
-    @name = name
+  def initialize(character)
+    @character = character
     @actor = actor
     @salary = salary
   end
-
-
-
 
 end
