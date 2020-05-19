@@ -38,12 +38,14 @@ class NetworkTest < Minitest::Test
   def test_it_has_main_characters
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@parks_and_rec)
-    
+
     assert_equal @kitt, @nbc.main_characters
   end
 
   def test_is_has_actors_by_show
-    skip
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+
     assert_equal ({@knight_rider => ["David Hasselhoff", "William Daniels"], @parks_and_rec => ["Amy Poehler", "Nick Offerman"]}), @nbc.actors_by_show
   end
 end
