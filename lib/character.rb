@@ -9,7 +9,5 @@ class Character
     @name = info[:name]
     @actor = info[:actor]
     @salary = info[:salary]
-
-
   end
 end
