@@ -15,7 +15,6 @@ class ShowTest < Minitest::Test
   end
 
   def test_it_has_name
-    skip
     assert_equal "Knight Rider", @knight_rider.name
   end
 
