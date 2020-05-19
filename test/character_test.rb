@@ -11,4 +11,16 @@ class CharacterTest < Minitest::Test
   def test_it_exists
     assert_instance_of Character, @kitt
   end
+
+  def test_it_has_a_name
+    assert_equal "KITT", @kitt.name
+  end
+
+  def test_it_has_an_actor
+    assert_equal "William Daniels", @kitt.actor
+  end
+
+  def test_it_has_a_salary
+    1000000, @kitt.salary
+  end
 end
