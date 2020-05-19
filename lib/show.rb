@@ -15,4 +15,8 @@ class Show
     end
   end
 
+  def highest_paid_actor
+    @characters.max_by { |c| c.salary }.actor
+  end
+
 end
