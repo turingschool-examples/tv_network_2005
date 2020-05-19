@@ -23,7 +23,19 @@ class ShowTest < Minitest::Test
   end
 
   def test_it_has_characters
-    assert_equal [@michael_knight, @kitt], @knight_rider.characters 
+    assert_equal [@michael_knight, @kitt], @knight_rider.characters
+  end
+
+  def test_total_salary
+    assert_equal 2_600_000, @knight_rider.total_salary
+  end
+
+  def test_highest_paid_actor
+    assert_equal "David Hasselhoff", @knight_rider.highest_paid_actor
+  end
+
+  def test_actors_array
+    assert_equal ["David Hasselhoff", "William Daniels"], @knight_rider.actors 
   end
 
 end
