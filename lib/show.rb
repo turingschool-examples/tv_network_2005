@@ -9,4 +9,10 @@ class Show
     @characters = characters
   end
 
+  def total_salary
+    @characters.map.sum do |character|
+      character.salary
+    end
+  end
+
 end
