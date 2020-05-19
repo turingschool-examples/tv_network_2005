@@ -23,4 +23,8 @@ class ShowTest < Minitest::Test
   def test_highest_paid_actor
     assert_equal "David Hasselhoff", @knight_rider.highest_paid_actor
   end
+
+  def test_actor_name_access
+    assert_equal ["David Hasselhoff", "William Daniels"], @knight_rider.actors
+  end
 end

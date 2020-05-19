@@ -25,8 +25,11 @@ class Show
   end
 
   def actors
-    @characters.sort do |character|
-      character.actor 
+    ord_characters = @characters.sort_by do |character|
+      character.actor[0]
+    end
+    characters.map do |character|
+      character.actor
     end
   end
 end
