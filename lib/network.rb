@@ -20,4 +20,18 @@ class Network
     end
     main_characters
   end
+
+  def actors_by_show
+    grouped_by_show = Hash.new
+    shows.each do |show|
+      show.characters.map do |character|
+        if grouped_by_show[show] != nil
+          grouped_by_show[show] << character.actor
+        else
+          grouped_by_show[show] = [character.actor]
+        end
+      end
+    end
+    grouped_by_show
+  end
 end
