@@ -8,4 +8,10 @@ class Show
     @creator = creator
     @characters = characters
   end
+
+  def total_salary
+    characters.sum do |character|
+      character.info[:salary]
+    end
+  end
 end
