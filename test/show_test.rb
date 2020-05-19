@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/character.rb'
+require './lib/character'
 require './lib/show'
 
 class ShowTest < Minitest::Test
@@ -28,4 +28,7 @@ class ShowTest < Minitest::Test
     assert_equal [@michael_knight, @kitt], @knight_rider.characters
   end
 
+  def test_total_salary
+    assert_equal 2600000, @knight_rider.total_salary
+  end
 end
