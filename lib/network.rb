@@ -12,4 +12,14 @@ class Network
   def add_show(show)
     @shows << show
   end
+
+  def main_characters
+    @shows.each do |show|
+      show.characters.find_all do |character|
+       if (character.name.upcase!) == nil && (character.salary > 500_000)
+         p character
+       end
+      end
+    end
+  end
 end
