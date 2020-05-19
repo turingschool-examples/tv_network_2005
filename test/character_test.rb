@@ -1,4 +1,4 @@
-require "./lib/character.rb"
+require "./lib/character"
 require "minitest/autorun"
 require "minitest/pride"
 
