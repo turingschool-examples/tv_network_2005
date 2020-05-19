@@ -8,5 +8,4 @@ class Character
     @actor = character_info[:actor]
     @salary = character_info[:salary].to_i
   end
-
 end
