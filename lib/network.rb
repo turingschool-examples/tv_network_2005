@@ -32,4 +32,24 @@ class Network
     end
     show_actors
   end
+
+  def shows_by_actor
+    actors_shows = Hash.new([])
+    actors = []
+    @shows.each do |show|
+      show.characters.each do |char|
+        actors << char.actor
+      end
+    end
+    actors.uniq!
+    actors.each do |actor|
+      actors_shows[actor] = []
+    end
+    @shows.each do |show|
+      require "pry"; binding.pry
+      # if show.characters[0].actor == actors_shows[show.characters[0].actor]
+        actors_shows[show.characters[0].actor] += show
+    end
+  end
+
 end
