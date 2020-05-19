@@ -16,4 +16,11 @@ attr_reader :name, :creator, :characters
     end
     salary_total
   end
+
+  def highest_paid_actor
+    highest_paid = @characters.max do |a, b|
+      a.salary<=>b.salary
+    end
+    highest_paid.actor
+  end
 end
