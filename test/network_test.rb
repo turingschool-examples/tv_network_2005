@@ -30,10 +30,22 @@ class NetworkTest < Minitest::Test
       salary: 1_400_000
       })
     @parks_and_rec = Show.new("Parks and Recreation", "Michael Shur & Greg Daniels", [@leslie_knope, @ron_swanson])
+
+    @mitch = Character.new({
+      name: "Mitch Buchannon",
+      actor: "David Hasselhoff", salary: 1_200_000
+      })
+    @baywatch = Show.new("Baywatch", "Gregory Bonann", [@mitch])
   end
 
-  def add_shows
+  def add_2_shows
     @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+  end
+
+  def add_3_shows
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@baywatch)
     @nbc.add_show(@parks_and_rec)
   end
 
@@ -50,21 +62,47 @@ class NetworkTest < Minitest::Test
   end
 
   def test_shows_can_be_added_to_network
-    add_shows
+    add_2_shows
     assert_equal [@knight_rider, @parks_and_rec], @nbc.shows
   end
 
+  def test_it_can_identify_all_characters
+    skip
+  end
+
   def test_it_can_identify_main_characters
-    add_shows
+    add_2_shows
     assert_equal [@kitt], @nbc.main_characters
   end
 
   def test_it_can_categorize_actors_by_show
-    add_shows
+    add_2_shows
     hash = {
       @knight_rider => ["David Hasselhoff", "William Daniels"],
       @parks_and_rec => ["Amy Poehler", "Nick Offerman"]
     }
     assert_equal hash, @nbc.actors_by_show
+  end
+
+  def test_it_can_identify_all_actors
+    skip
+  end
+
+  def test_it_can_identify_shows_by_actor
+    add_3_shows
+
+    hash = {
+     "David Hasselhoff" => [@knight_rider, @baywatch],
+     "William Daniels" => [@knight_rider],
+     "Amy Poehler" => [@parks_and_rec],
+     "Nick Offerman" => [@parks_and_rec]
+   }
+   require "pry"; binding.pry
+   assert_equal hash, @nbc.shows_by_actor
+  end
+
+  def test_it_can_identify_prolific_actors
+    add_3_shows
+    assert_equal ["David Hasselhoff"], @nbc.prolific_actors
   end
 end
