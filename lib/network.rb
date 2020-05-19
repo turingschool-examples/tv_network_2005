@@ -32,10 +32,21 @@ class Network
   end
 
   def shows_by_actor
+    actor_shows = {}
     @shows.each do |show|
-      require "pry"
-      binding.pry
+      show.characters.each do |character|
+        if actor_shows[character.actor].nil?
+          actor_shows[character.actor] = [show]
+        else
+          actor_shows[character.actor] << show
+        end
+      end
     end
+    actor_shows
+  end
+
+  def prolific_actors
+
   end
 
 end
