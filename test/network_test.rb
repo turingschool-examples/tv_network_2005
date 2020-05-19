@@ -49,8 +49,13 @@ class NetworkTest < Minitest::Test
   end
 
   def test_it_can_group_actors_by_show
-    skip
+    # skip
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+
     assert_instance_of Hash , @nbc.actors_by_show
+    assert_equal ["David Hasselhoff", "William Daniels"], @nbc.actors_by_show[@knight_rider]
+    assert_equal ["Amy Poehler", "Nick Offerman"], @nbc.actors_by_show[@parks_and_rec]
   end
 
 end
