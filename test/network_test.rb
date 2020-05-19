@@ -53,7 +53,7 @@ class NetworkTest < Minitest::Test
   end
 
   def test_network_actors_by_show
-    skip
+    # skip
     nbc = Network.new("NBC")
 
     michael_knight = Character.new({name: "Michael Knight", actor: "David Hasselhoff", salary: 400_000})

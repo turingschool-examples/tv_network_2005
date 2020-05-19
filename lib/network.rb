@@ -11,10 +11,17 @@ class Network
   end
 
   def actors_by_show
-      @shows.group_by do |show|
-        show
+    char_group= {}
+    @shows.each do |show|
+      actors = show.characters.map do |character|
+        character.actor
       end
+      char_group[show] = actors
+    end
+    char_group
   end
+
+
 
   def main_characters
     @shows.map do|show|
