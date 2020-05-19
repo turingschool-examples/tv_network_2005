@@ -25,4 +25,11 @@ class Network
     main_characters
   end
 
+  def actors_by_show
+    show_actors = Hash.new([])
+    shows.each do |show|
+      show_actors[show] = (show.characters.map {|character| character.actor})
+    end
+    show_actors
+  end
 end
