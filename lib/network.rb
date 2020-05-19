@@ -34,4 +34,18 @@ class Network
     end
     grouped_by_show
   end
+
+  def shows_by_actor
+    shows_by_actor = Hash.new
+    self.actors_by_show.each do |show, actors|
+      actors.each do |actor|
+        if shows_by_actor[actor] != nil
+          shows_by_actor[actor] << show
+        else
+          shows_by_actor[actor] = [show]
+        end
+      end
+    end
+    shows_by_actor
+  end
 end
