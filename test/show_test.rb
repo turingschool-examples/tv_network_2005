@@ -28,7 +28,6 @@ class ShowTest < Minitest::Test
   end
 
   def test_it_has_total_salary
-    skip
     assert_equal 2600000, @knight_rider.total_salary
   end
 
