@@ -23,8 +23,8 @@ class ShowTest < Minitest::Test
   end
 
   def test_it_has_characters
-    skip
-    assert_equal [@kitt, @michael_knight], @knight_rider.characters
+
+    assert_equal [@michael_knight, @kitt], @knight_rider.characters
   end
 
   def test_it_has_total_salary
