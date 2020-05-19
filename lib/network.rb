@@ -12,4 +12,17 @@ class Network
     @shows << show
   end
 
+  def main_characters
+    main_collector = []
+    #salary is greater than 500_000
+    #their character name has no lowercase letters
+    @shows.each do |show|
+      main = show.characters.find_all do |character|
+        character.salary > 500_000 && character.name == character.name.upcase
+      end
+      main_collector << main
+    end
+    main_collector.flatten
+  end
+
 end
