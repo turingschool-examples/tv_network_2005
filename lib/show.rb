@@ -13,16 +13,11 @@ class Show
     (@characters[0].salary) +
     (@characters[1].salary)
   end
-end
 
-# def renters
-#     renter_names = []
-#
-#     @units.each do |unit|
-#       # "we have a renter" is what != nil is saying
-#       if unit.renter != nil
-#         renter_names << unit.renter.name
-#       end
-#     end
-#     renter_names
-#   end
+  def highest_paid_actor
+    character = @characters.max_by do |character|
+      character.salary
+    end
+    character.actor
+  end
+end

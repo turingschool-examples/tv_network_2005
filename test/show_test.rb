@@ -24,14 +24,11 @@ class CharacterTest < Minitest::Test
   def test_it_can_calculate_total_salary
     assert_equal 2_600_000, @knight_rider.total_salary
   end
+
+  def test_it_can_find_highest_paid_actor
+    assert_equal "David Hasselhoff", @knight_rider.highest_paid_actor
+  end
 end
 
-
-# pry(main)> knight_rider.total_salary
-# # => 2600000
-#
-# pry(main)> knight_rider.highest_paid_actor
-# # => "David Hasselhoff"
-#
 # pry(main)> knight_rider.actors
 # # => ["David Hasselhoff", "William Daniels"]
