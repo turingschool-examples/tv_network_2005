@@ -8,21 +8,18 @@ class CharacterTest < Minitest::Test
   end
 
   def test_it_exists
-    assert_instance_of Character, @kit
+    assert_instance_of Character, @kitt
   end
 
   def test_it_has_name
-    skip
     assert_equal "KITT", @kitt.name
   end
 
   def test_it_has_actor
-    skip
     assert_equal "William Daniels", @kitt.actor
   end
-  
+
   def test_it_has_salary
-    skiop
-    assert_equal 1000000, @kit.salary
+    assert_equal 1000000, @kitt.salary
   end
 end

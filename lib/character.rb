@@ -13,4 +13,8 @@ class Character
     info[:actor]
   end
 
+  def salary
+    info[:salary]
+  end
+
 end
