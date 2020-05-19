@@ -14,12 +14,12 @@ class CharacterTest < Minitest::Test
 
   def test_it_has_a_name
     skip
-    assert_equal {:name => "KITT"}, @character
+    assert_equal {:name => "KITT"}, @character.name
   end
 
   def test_character_is_played_by_an_actor
     skip
-    assert_equal {:actor => "William Daniels"}, @actor
+    assert_equal {:actor => "William Daniels"}, @actor.name
   end
 
   def test_it_has_a_salary
