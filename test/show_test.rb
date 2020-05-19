@@ -26,4 +26,8 @@ class ShowTest < Minitest::Test
   def test_it_hace_characters_array
     assert_equal [@michael_knight, @kitt], @knight_rider.characters
   end
+
+  def test_total_salary
+    assert_equal 2600000, @knight_rider.total_salary
+  end
 end
