@@ -5,4 +5,21 @@ require './lib/show'
 require './lib/network'
 
 class NetworkTest < MiniTest::Test
+  def test_it_exists
+    nbc = Network.new("NBC")
+
+    assert_instance_of Network, nbc
+  end
+
+  def test_it_has_a_name
+    nbc = Network.new("NBC")
+
+    assert_equal "NBC", nbc.name
+  end
+
+  def test_shows_starts_empty
+    nbc = Network.new("NBC")
+
+    assert_equal [], nbc.shows
+  end
 end
