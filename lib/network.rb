@@ -22,6 +22,11 @@ class Network
     end
   end
 
+  def actors_by_show
+     shows.to_h { |show| [show, show.actors] }
+    # turns shows into hash with the show being the key and the actors (show.actors) being the value
+  end
+
   private
   attr_writer :shows
 end
