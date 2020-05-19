@@ -48,4 +48,15 @@ class NetworkTest < Minitest::Test
     assert_equal expected, @nbc.actors_by_show
   end
 
+  def test_shows_by_actor
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@baywatch)
+    @nbc.add_show(@parks_and_rec)
+    expected = {"David Hasselhoff" => [@knight_rider, @baywatch],
+    "William Daniels" => [@knight_rider],
+    "Amy Poehler" => [@parks_and_rec],
+    "Nick Offerman" => [@parks_and_rec]
+    }
+    assert_equal expected, @nbc.shows_by_actor
+  end
 end
