@@ -19,7 +19,6 @@ class ShowTest < Minitest::Test
   end
 
   def test_it_has_creator
-    skip
     assert_equal "Glen Larson", @knight_rider.creator
   end
 
