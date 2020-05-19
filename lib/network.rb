@@ -46,7 +46,11 @@ class Network
   end
 
   def prolific_actors
-
+    actor = shows_by_actor.find_all do |actor, shows|
+      if shows.size > 1
+        return actor
+      end
+    end
   end
 
 end
