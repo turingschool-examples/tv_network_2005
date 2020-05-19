@@ -1,7 +1,8 @@
 class Show
   attr_reader :name,
               :creator,
-              :characters
+              :characters,
+              :actors
 
   def initialize(name, creator, characters)
     @name = name
@@ -19,5 +20,11 @@ class Show
     characters.max_by do |character|
       character.info[:salary]
     end.actor
+  end
+
+  def actors
+    characters.map do |character|
+      character.actor
+    end  
   end
 end
