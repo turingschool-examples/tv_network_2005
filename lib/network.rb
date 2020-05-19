@@ -20,4 +20,14 @@ class Network
     end.flatten
   end
 
+  # I struggled on the method below for nearly an hour - I tried using inject/reduce as well as the below.
+
+  def actors_by_show
+    @shows.each_with_object({}) do |show, hash|
+      show.characters.each do |detail|
+        hash[show] = detail.actor
+      end
+    end
+  end
+
 end
