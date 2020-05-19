@@ -20,4 +20,12 @@ class Network
       character.name == character.name.upcase
     end
   end
+
+  def actors_by_show
+    sorted = {}
+    @shows.each do |show|
+      sorted[show] = show.actors
+    end
+    sorted
+  end
 end
