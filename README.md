@@ -1,4 +1,4 @@
-# TV Network
+ # TV Network
 
 ## Instructions
 
@@ -11,7 +11,7 @@
 
 ## Iteration 1
 
-Use TDD to create a `Character` class that responds to the following interaction pattern:
+<!-- Use TDD to create a `Character` class that responds to the following interaction pattern: -->
 
 ```ruby
 pry(main)> require './lib/character'
