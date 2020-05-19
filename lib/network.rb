@@ -38,6 +38,7 @@ class Network
         hash[actor] << show
       end
     end
+  end
 
 
   def prolific_actors
