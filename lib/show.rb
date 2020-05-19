@@ -15,4 +15,10 @@ class Show
     end
     total
   end
+
+  def highest_paid_actor
+    @characters.max_by do |character|
+      character.salary
+    end.actor
+  end
 end
