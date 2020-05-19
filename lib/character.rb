@@ -4,7 +4,7 @@ class Character
               :actor,
               :salary
 
-  def initialize
+  def initialize(character) 
     @name = name
     @actor = actor
     @salary = salary
@@ -13,4 +13,4 @@ class Character
 
 
 
-end 
+end
