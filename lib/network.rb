@@ -12,16 +12,15 @@ attr_reader :name,
   end
 
   def main_characters
-
-    characters_array = @shows.map do |show|
-      show.characters
-    end
-    # require 'pry'; binding.pry
-#characters_array[0][0].salary = integer
-    indiv_char = characters_array.map do |character|
-      character.character
-    end
-
+    main_chars = []
+     @shows.each do |show|
+       show.characters.each do |character|
+        if character.salary > 500_000 && character.name == character.name.upcase
+          main_chars << character
+        end
+      end
+    end     # require 'pry'; binding.pry
+    main_chars
   end
 
 end

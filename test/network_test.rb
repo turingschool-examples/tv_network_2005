@@ -45,7 +45,7 @@ class NetworkTest < Minitest::Test
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@parks_and_rec)
 
-    assert_equal [@kitt, @michael_knight, @leslie_knope, @ron_swanson], @nbc.main_characters
+    assert_equal [@kitt], @nbc.main_characters
   end
   # A character is a main character for the network if their salary is greater than 500_000 and their character name has no lowercase letters.
 end
