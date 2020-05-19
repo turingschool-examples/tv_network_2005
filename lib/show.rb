@@ -19,6 +19,12 @@ class Show
     character = @characters.max_by do |character|
       character.salary
     end
-    character.actor 
+    character.actor
+  end
+
+  def actors
+    @characters.map do |character|
+      character.actor 
+    end
   end
 end
