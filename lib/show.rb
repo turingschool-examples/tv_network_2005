@@ -14,4 +14,10 @@ class Show
       character.info[:salary]
     end
   end
+
+  def highest_paid_actor
+    characters.max_by do |character|
+      character.info[:salary]
+    end.actor
+  end
 end
