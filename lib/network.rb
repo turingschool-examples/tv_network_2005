@@ -22,16 +22,44 @@ class Network
   end
 
   def actors_by_show
-    show_actors = Hash.new { |hash, key|
+    actors_by_show_hash = Hash.new { |hash, key|
       hash[key] = []
     }
 
     @shows.each do |show|
-      show_actors[show] = show.characters.collect do |character|
+      actors_by_show_hash[show] = show.characters.collect do |character|
         character.actor
       end
     end
-    show_actors
+    actors_by_show_hash
+  end
+
+  def shows_by_actor
+
+    shows_by_actor_hash = Hash.new { |hash, key|
+      hash[key] = []
+    }
+
+    actors_by_show.each do |show, actors|
+      actors.each do |actor|
+        shows_by_actor_hash[actor] << show
+      end
+    end
+
+    shows_by_actor_hash
+    # this works, but there has to be a
+    # better way to do this
+  end
+
+  def prolific_actors
+    # require "pry"; binding.pry
+    prolific = []
+    shows_by_actor.find_all do |actor, shows|
+      if shows.count > 1
+        prolific << actor
+      end
+    end
+    prolific
   end
 
 end

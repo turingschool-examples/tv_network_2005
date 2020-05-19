@@ -20,6 +20,12 @@ class NetworkTest < Minitest::Test
     @ron_swanson = Character.new({name: "Ron Swanson", actor: "Nick Offerman", salary: 1_400_000})
 
     @parks_and_rec = Show.new("Parks and Recreation", "Michael Shur & Greg Daniels", [@leslie_knope, @ron_swanson])
+
+    @mitch = Character.new({name: "Mitch Buchannon", actor: "David Hasselhoff", salary: 1_200_000})
+
+    @baywatch = Show.new("Baywatch", "Gregory Bonann", [@mitch])
+
+
   end
 
   def test_it_exists
@@ -56,6 +62,22 @@ class NetworkTest < Minitest::Test
     assert_instance_of Hash , @nbc.actors_by_show
     assert_equal ["David Hasselhoff", "William Daniels"], @nbc.actors_by_show[@knight_rider]
     assert_equal ["Amy Poehler", "Nick Offerman"], @nbc.actors_by_show[@parks_and_rec]
+  end
+
+  def test_it_can_group_shows_by_actor
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+    @nbc.add_show(@baywatch)
+
+    assert_instance_of Hash, @nbc.shows_by_actor
+  end
+
+  def test_it_has_prolific_actors
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@parks_and_rec)
+    @nbc.add_show(@baywatch)
+    
+    assert_equal ["David Hasselhoff"], @nbc.prolific_actors
   end
 
 end
