@@ -6,4 +6,11 @@ class Network
     @shows = []
   end
 
+  def add_show(new_show)
+    @shows << new_show
+  end
+
+  def actors_by_show
+
+  end
 end
