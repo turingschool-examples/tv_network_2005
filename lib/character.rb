@@ -1,20 +1,15 @@
 class Character
-  attr_reader :info
+  attr_reader :info,
+              :name,
+              :actor,
+              :salary
 
   def initialize(info)
     @info = info
-  end
+    @name = info[:name]
+    @actor = info[:actor]
+    @salary = info[:salary]
 
-  def name
-    info[:name]
-  end
 
-  def actor
-    info[:actor]
   end
-
-  def salary
-    info[:salary]
-  end
-
 end
