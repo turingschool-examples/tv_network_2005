@@ -14,4 +14,16 @@ class ShowTest < Minitest::Test
   def test_it_exists
     assert_instance_of Show, @knight_rider
   end
+
+  def test_it_has_a_name
+    assert_equal "Knight Rider", @knight_rider.name
+  end
+
+  def test_it_has_a_creator
+    assert_equal "Glen Larson", @knight_rider.creator
+  end
+
+  def test_it_hace_characters_array
+    assert_equal [@michael_knight, @kitt]
+  end
 end
