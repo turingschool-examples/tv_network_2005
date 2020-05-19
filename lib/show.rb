@@ -23,7 +23,6 @@ attr_reader :name,
 
   def actors
 
-    # require 'pry'; binding.pry
     @characters.collect_concat do |character|
       character.actor
     end
