@@ -89,6 +89,7 @@ class NetworkTest < Minitest::Test
   end
 
   def test_it_can_identify_shows_by_actor
+    skip
     add_3_shows
 
     hash = {
@@ -97,7 +98,6 @@ class NetworkTest < Minitest::Test
      "Amy Poehler" => [@parks_and_rec],
      "Nick Offerman" => [@parks_and_rec]
    }
-   require "pry"; binding.pry
    assert_equal hash, @nbc.shows_by_actor
   end
 

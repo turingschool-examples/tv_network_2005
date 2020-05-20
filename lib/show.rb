@@ -12,8 +12,7 @@ class Show
   end
 
   def highest_paid_actor
-    highest_paid_actor = @characters.max_by { |character| character.salary}
-    highest_paid_actor.actor
+    @characters.max_by { |character| character.salary}.actor
   end
 
   def actors

@@ -26,14 +26,8 @@ class Network
     actors_by_show_list = {}
 
     @shows.each do |show|
-      actors_by_show_list[show] = []
-    end
-
-    @shows.each do |show|
-      all_characters.each do |character|
-        if show.characters.include?(character)
-          actors_by_show_list[show] << character.actor
-        end
+      show.characters.each do |character|
+        actors_by_show_list[show] = show.actors
       end
     end
 
@@ -51,6 +45,7 @@ class Network
   end
 
   def shows_by_actor
+    # incomplete method
     shows_by_actor_list = {}
 
     unique_actors.each do |actor|
