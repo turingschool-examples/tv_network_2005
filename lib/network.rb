@@ -12,41 +12,70 @@ class Network
   end
 
   def main_characters
-    main = @shows.map do |show|
+    @shows.flat_map do |show|
       show.characters.select do |character|
         character.name == character.name.upcase && character.salary > 500000
       end
     end
-    main[0][0]
   end
-  # I know this is wrong, but, it keeps sitting in an array...each do gives the whole show instead of jsut the character
 
   def actors_by_show
     # key is show, value is actors array show.actors
-    grouped = Hash.new
-    @shows.each do |show|
-      grouped[show] = show.actors
+    #reduce is best use case. You MUST return accumulator after.
+    # actor_show = {}
+    # @shows.each do |show|
+    #   actor_show[show] = show.actors
+    # end
+    # actor_show
+
+    @shows.reduce({}) do |actor_show, show|
+      actor_show[show] = show.actors
+      actor_show
     end
-    hash
+  end
+
+  def unique_actors
+    key = @shows.flat_map do |show|
+      show.actors
+    end.uniq
+  end
+
+  def included_actors(actor)
+    @shows.select do |show|
+      show.actors.include?(actor)
+    end
   end
 
   def shows_by_actor
-    hash = Hash.new { |hash, key| hash[key] = [] }
+    # actors string is the key, array of shows is the value
+    # show_by_actor = Hash.new { |hash, key| hash[key] = [] }
+    # unique_actors.each do |actor|
+    #   show_by_actor[actor] = included_actors(actor)
+    # end
+    # show_by_actor
 
-    actors_by_show.each do |show, actors|
-      actors.each do |actor|
-        hash[actor] << show
-      end
+    # also works with reduce
+    unique_actors.reduce({}) do |show_by_actor, actor|
+      show_by_actor[actor] = included_actors(actor)
+      show_by_actor
     end
   end
 
 
   def prolific_actors
     #need to use shows by actor to link actors to the shows they have been in and then do a select if the actor has been in > 1 shows
-    @shows.each do |show|
-      @show.actors.each do |actor|
-        shows_by_actor > 1
-      end
+    # shows_by_actor.select do |actor, shows|
+    #   shows.length > 1
+    # end.keys
+    #
+    # shows_by_actor.select do |actor, shows|
+    #   actor if shows.length > 1
+    # end
+
+    actors = []
+    shows_by_actor.each do |actor, shows|
+      actors << actor if shows.length > 1
     end
+    actors
   end
 end
