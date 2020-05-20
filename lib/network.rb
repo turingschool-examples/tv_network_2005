@@ -55,10 +55,20 @@ class Network
     # show_by_actor
 
     # also works with reduce
-    unique_actors.reduce({}) do |show_by_actor, actor|
-      show_by_actor[actor] = included_actors(actor)
-      show_by_actor
+    # unique_actors.reduce({}) do |show_by_actor, actor|
+    #   show_by_actor[actor] = included_actors(actor)
+    #   show_by_actor
+    # end
+
+    # works with nested each
+    show_by_actor = Hash.new { |hash, key| hash[key] = [] }
+    @shows.each do |show|
+      show.characters.each do |character|
+        show_by_actor[character.actor] << show
+      end
     end
+    show_by_actor
+
   end
 
 
@@ -68,14 +78,21 @@ class Network
     #   shows.length > 1
     # end.keys
     #
+    # DOES NOT WORK BECAUSE YOU DON'T WANT TO DO A IF STATEMENT INSIDE OF A SELECT
     # shows_by_actor.select do |actor, shows|
+    #   require "pry"; binding.pry
     #   actor if shows.length > 1
     # end
+    #
+    # shows_by_actor.reduce([]) do |acc, (actor, shows)|
+    #   acc << actor if shows.length > 1
+    #   acc
+    # end
 
-    actors = []
-    shows_by_actor.each do |actor, shows|
-      actors << actor if shows.length > 1
-    end
-    actors
+    # actors = []
+    # shows_by_actor.each do |actor, shows|
+    #   actors << actor if shows.length > 1
+    # end
+    # actors
   end
 end
