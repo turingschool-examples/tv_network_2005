@@ -62,16 +62,35 @@ class Network
   end
 
   def shows_by_actor
-    shows_by_actor = {}
-
-    @shows.each do |show|
+    ## using reduce
+    shows.reduce({}) do |shows_by_actor, show|
       show.characters.each do |character|
         shows_by_actor[character.actor] = [] if shows_by_actor[character.actor].nil?
         shows_by_actor[character.actor] << show
       end
+      shows_by_actor
     end
 
-    shows_by_actor
+    # shows_by_actor = Hash.new { |hash, key| hash[key] = [] }
+    # => the notation in the curly brackets sets the default value of a hash to an empty array
+    # @shows.each do |show|
+    #   show.characters.each do |character|
+    #     shows_by_actor[character.actor] << show
+    #   end
+    # end
+    #
+    # shows_by_actor
+
+    # shows_by_actor = {}
+    #
+    # @shows.each do |show|
+    #   show.characters.each do |character|
+    #     shows_by_actor[character.actor] = [] if shows_by_actor[character.actor].nil?
+    #     shows_by_actor[character.actor] << show
+    #   end
+    # end
+    #
+    # shows_by_actor
   end
 
   def prolific_actors
