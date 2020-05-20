@@ -40,10 +40,10 @@ class NetworkTest < Minitest::Test
   def test_it_has_main_characters
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@parks_and_rec)
-    assert_equal @kitt, @nbc.main_characters
+    assert_equal [@kitt], @nbc.main_characters
   end
 
-  def test_it_can_group_characters_by_show
+  def test_it_can_group_actors_by_show
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@parks_and_rec)
     expected = {
@@ -54,7 +54,6 @@ class NetworkTest < Minitest::Test
   end
 
   def test_it_can_group_show_by_actors
-    # skip
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@baywatch)
     @nbc.add_show(@parks_and_rec)
