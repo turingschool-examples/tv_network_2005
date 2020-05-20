@@ -33,14 +33,22 @@ class Network
     #
     # actors_by_show_list
 
-    # set argument to be accumulator
-    # first block var = the name of accumulator
-    # second block var = what you're iterating over
-    
+    # using reduce
     @shows.reduce({}) do |actors_by_show, show|
       actors_by_show[show] = show.actors
       actors_by_show
     end
+
+    # set argument to be accumulator
+    # first block var = the name of accumulator
+    # second block var = what you're iterating over
+    # need to always return the accumulator at the end of the block
+
+    # reduce is used to build something new
+    # as opposed to w each and map, we take an array and build an array into another array
+
+    # using .to_h -- ONLY WORKS IN RUBY 2.6 OR LATER
+    # @shows.to_h { |show| [show, show.actors] }
   end
 
   def all_actors
