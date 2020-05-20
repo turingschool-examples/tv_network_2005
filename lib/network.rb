@@ -94,11 +94,21 @@ class Network
   end
 
   def prolific_actors
-    all_actors.find_all do |actor|
-      all_actors.count(actor) > 1
-    end.uniq
+    # when using reduce to iterate over a hash, need to wrap block variables assigned to key and hash values in parens
+    shows_by_actor.reduce([]) do |acc, (actor, shows)|
+      acc << actor if shows.length > 1
+      acc
+    end
 
-    # Value is returned as string, not array
+    # shows_by_actor.select do |actor, shows|
+    #   shows.length > 1
+    # end.keys
+
+    # all_actors.find_all do |actor|
+    #   all_actors.count(actor) > 1
+    # end.uniq
+
+    # DOESNT WORK bc value is returned as string, not array
     # all_actors.detect do |actor|
     #   all_actors.count(actor) > 1
     # end
