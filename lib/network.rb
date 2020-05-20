@@ -23,15 +23,24 @@ class Network
   end
 
   def actors_by_show
-    actors_by_show_list = {}
+    # actors_by_show_list = {}
+    #
+    # @shows.each do |show|
+    #   show.characters.each do |character|
+    #     actors_by_show_list[show] = show.actors
+    #   end
+    # end
+    #
+    # actors_by_show_list
 
-    @shows.each do |show|
-      show.characters.each do |character|
-        actors_by_show_list[show] = show.actors
-      end
+    # set argument to be accumulator
+    # first block var = the name of accumulator
+    # second block var = what you're iterating over
+    
+    @shows.reduce({}) do |actors_by_show, show|
+      actors_by_show[show] = show.actors
+      actors_by_show
     end
-
-    actors_by_show_list
   end
 
   def all_actors
