@@ -11,12 +11,9 @@ class Network
   end
 
   def actors_by_show
-    char_group= {}
+    char_group= Hash.new
     @shows.each do |show|
-      actors = show.characters.map do |character|
-        character.actor
-      end
-      char_group[show] = actors
+      char_group[show] = show.actors
     end
     char_group
   end
@@ -29,6 +26,5 @@ class Network
         char.salary > 500_000
       end
     end.flatten
-
   end
 end
