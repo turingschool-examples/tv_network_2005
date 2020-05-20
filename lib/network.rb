@@ -62,43 +62,16 @@ class Network
   end
 
   def shows_by_actor
-    # incomplete method
-    shows_by_actor_list = {}
+    shows_by_actor = {}
 
-    unique_actors.each do |actor|
-      shows_by_actor_list[actor] = []
-    end
-
-    actors_by_show.keys.each do |actor|
-      if shows_by_actor_list.keys.include?(actor)
-        shows_by_actor_list[actor] << "hi"
+    @shows.each do |show|
+      show.characters.each do |character|
+        shows_by_actor[character.actor] = [] if shows_by_actor[character.actor].nil?
+        shows_by_actor[character.actor] << show
       end
     end
 
-    # unique_actors.each do |actor|
-    #   shows_by_actor_list[actor] = []
-    # end
-    #
-    # @shows.each do |show|
-    #   unique_actors.each do |actor|
-    #     if show.characters.include?(actor)
-    #       shows_by_actor_list[actor] << show
-    #     end
-    #   end
-    # end
-
-
-    # all_actors.uniq.each do |actor|
-    #   @shows.each do |show|
-    #     show.characters.each do |character|
-    #       if show.character == actor
-    #         shows_by_actor_list_[actor] << show
-    #       end
-    #     end
-    #   end
-    # end
-
-    shows_by_actor_list
+    shows_by_actor
   end
 
   def prolific_actors
