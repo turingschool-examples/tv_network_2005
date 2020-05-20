@@ -42,10 +42,24 @@ class NetworkTest < Minitest::Test
   end
 
   def test_it_has_main_characters
+    # A character is a main character for the network if their salary is greater than 500_000 and their character name has no lowercase letters.
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@parks_and_rec)
 
     assert_equal [@kitt], @nbc.main_characters
   end
-  # A character is a main character for the network if their salary is greater than 500_000 and their character name has no lowercase letters.
+  def test_it_can_do_shows_actors
+  @nbc.shows_by_actor
+  expected =  {
+    @knight_rider => ["David Hasselhoff", "William Daniels" => knight_rider
+      "Amy Poehler" => [parks_and_rec],
+      "Nick Offerman" => [parks_and_rec]
+    }
 end
+
+
+
+
+
+# pry(main)> nbc.prolific_actors
+# => ["David Hasselhoff"]

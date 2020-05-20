@@ -9,7 +9,6 @@ attr_reader :name,
   end
 
   def total_salary
-
     @characters.sum do |character|
       character.salary
     end
@@ -22,9 +21,12 @@ attr_reader :name,
   end
 
   def actors
+      @characters.map do |character|
+        character.actor
 
-    @characters.collect_concat do |character|
-      character.actor
+    # @characters.collect_concat do |character|
+    #   character.actor
+    # flat_map would be the same as collect_concat.  It's better if you use it for nested arrays.
     end
   end
 

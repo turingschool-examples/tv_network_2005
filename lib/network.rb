@@ -12,15 +12,25 @@ attr_reader :name,
   end
 
   def main_characters
-    main_chars = []
-     @shows.each do |show|
-       show.characters.each do |character|
-        if character.salary > 500_000 && character.name == character.name.upcase
-          main_chars << character
-        end
-      end
-    end     # require 'pry'; binding.pry
-    main_chars
-  end
+
+    characters = @shows.flat_map do |show|
+      show.characters
+    end
+
+    characters.find_all do |character|
+      character.salary > 500_000 && (character.name == character.name.upcase)
+    end
+
+    # @shows.collect_concat do |show|
+    #     show.character.salary > 500_000 && show.charcter.name == show.character.name.upcase
+    #   end
+
+
+     # @shows.map do |show|
+     #   show.characters.find_all do |character|
+     #     character.salary > 500_000 && character.name == character.name.upcase
+     #    end
+     #  end.flatten
+    end
 
 end
