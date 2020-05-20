@@ -26,30 +26,34 @@ class Network
   end
 
   def actors_by_show
-    show_actors = Hash.new([])
-    shows.each do |show|
-      show_actors[show] = (show.characters.map {|character| character.actor})
+    # @shows.to_h { |show| [show, show.actors]} # only for Ruby 2.6
+
+    # show_actors = Hash.new
+    # shows.each do |show|
+    #   show_actors[show] = show.actors # utilize previously built method
+    # end
+    # show_actors
+
+    @shows.reduce({}) do |show_actors, show| # reduce method refactor
+      show_actors[show] = show.actors
+      show_actors
     end
-    show_actors
   end
 
   def shows_by_actor
-    actors_shows = Hash.new([])
-    actors = []
+    shows_by_actor = {}
     @shows.each do |show|
-      show.characters.each do |char|
-        actors << char.actor
+      show.characters.each do |character|
+        shows_by_actor[character.actor] = [] if shows_by_actor[character.actor].nil?
+        shows_by_actor[character.actor] << show
       end
     end
-    actors.uniq!
-    actors.each do |actor|
-      actors_shows[actor] = []
-    end
-    @shows.each do |show|
-      require "pry"; binding.pry
-      # if show.characters[0].actor == actors_shows[show.characters[0].actor]
-        actors_shows[show.characters[0].actor] += show
-    end
+    shows_by_actor
   end
 
+  def prolific_actors
+    shows_by_actor.select do |actor, shows|
+      shows.length > 1
+    end.keys
+  end
 end

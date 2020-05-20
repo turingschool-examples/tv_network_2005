@@ -44,7 +44,10 @@ class NetworkTest < Minitest::Test
   def test_actors_by_show
     @nbc.add_show(@knight_rider)
     @nbc.add_show(@parks_and_rec)
-    expected = {@knight_rider => ["David Hasselhoff", "William Daniels"], @parks_and_rec => ["Amy Poehler", "Nick Offerman"]}
+    expected = {
+      @knight_rider => ["David Hasselhoff", "William Daniels"],
+      @parks_and_rec => ["Amy Poehler", "Nick Offerman"]
+    }
     assert_equal expected, @nbc.actors_by_show
   end
 
@@ -58,5 +61,13 @@ class NetworkTest < Minitest::Test
     "Nick Offerman" => [@parks_and_rec]
     }
     assert_equal expected, @nbc.shows_by_actor
+  end
+
+  def test_it_has_prolific_actors
+    @nbc.add_show(@knight_rider)
+    @nbc.add_show(@baywatch)
+    @nbc.add_show(@parks_and_rec)
+    
+    assert_equal ["David Hasselhoff"], @nbc.prolific_actors
   end
 end
